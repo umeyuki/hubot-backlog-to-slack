@@ -1,9 +1,9 @@
 {
-  "name": "backlog-slack-hubot",
+  "name": "hubot-backlog-slack",
   "version": "0.0.0",
   "private": true,
   "author": "umeyuki <umeyuki1326+github@gmail.com>",
-  "description": "backlog notification to slackslack notification to ",
+  "description": "A simple helpful robot for your Company",
   "dependencies": {
     "hubot": "^2.12.0",
     "hubot-diagnostics": "0.0.1",
