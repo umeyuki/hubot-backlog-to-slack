@@ -40,9 +40,10 @@ module.exports = (robot) ->
       console.log 'message = ' + message
       # Slack に投稿
       if message?
-          robot.messageRoom room, message
-          res.end "OK"
-          console.log "OK"
+        console.log(room)
+        robot.messageRoom room, message
+        res.end "OK"
+        console.log "OK"
       else
           robot.messageRoom room, "Backlog integration error."
           res.end "Error"
