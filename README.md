@@ -6,7 +6,7 @@ forked by [webhookとHubotを使ってBacklogをslack対応させる - Hacking M
 Require
 -------
 
-### environments
+### Environments
 
 ~~~ bash
 
