@@ -4,8 +4,6 @@
 # Commands:
 #   None
 
-backlogUrl = 'https://mobileclip.backlog.jp/'
-
 module.exports = (robot) ->
   robot.router.post "/room/:room", (req, res) ->
     room = req.params.room
@@ -26,7 +24,7 @@ module.exports = (robot) ->
               return
 
       # 投稿メッセージを整形
-      url = "#{backlogUrl}view/#{body.project.projectKey}-#{body.content.key_id}"
+      url = "#{process.env.BACKLOG_URL}/view/#{body.project.projectKey}-#{body.content.key_id}"
       if body.content.comment?.id?
           url += "#comment-#{body.content.comment.id}"
 
@@ -43,12 +41,9 @@ module.exports = (robot) ->
         robot.messageRoom room, message
         # robot.messageRoom room, message
         res.end "OK"
-        console.log "OK"
       else
           robot.messageRoom room, "Backlog integration error."
           res.end "Error"
-          console.log "Error"
     catch error
       console.log error
       robot.send
-      res.end "Error"
