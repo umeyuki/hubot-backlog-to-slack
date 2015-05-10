@@ -48,6 +48,6 @@ module.exports = (robot) ->
           res.end "Error"
           console.log "Error"
     catch error
-      console.log "Error"
+      console.log error
       robot.send
       res.end "Error"
