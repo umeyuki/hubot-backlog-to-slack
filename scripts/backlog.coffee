@@ -42,9 +42,12 @@ module.exports = (robot) ->
       if message?
           robot.messageRoom room, message
           res.end "OK"
+          console.log "OK"
       else
           robot.messageRoom room, "Backlog integration error."
           res.end "Error"
+          console.log "Error"
     catch error
+      console.log "Error"
       robot.send
       res.end "Error"
