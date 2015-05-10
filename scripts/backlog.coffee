@@ -4,17 +4,14 @@
 # Commands:
 #   None
 
-backlogUrl = 'https://mobileclip.backlog.jp/'
+backlogUrl = 'https://umeyuki.backlog.jp/'
 
 module.exports = (robot) ->
   robot.router.post "/room/:room", (req, res) ->
-    room = req.params.room
-    body = req.body
-
-    console.log 'body type = ' + body.type
-    console.log 'room = ' + room
-
+    { room } = req.params
+    { body } = req
     try
+
       switch body.type
           when 1
               label = '課題の追加'
@@ -23,7 +20,7 @@ module.exports = (robot) ->
               label = '課題の更新'
           else
               # 課題関連以外はスルー
-              return
+              continue
 
       # 投稿メッセージを整形
       url = "#{backlogUrl}view/#{body.project.projectKey}-#{body.content.key_id}"
@@ -37,14 +34,16 @@ module.exports = (robot) ->
           message += "#{body.content.comment.content}\n"
       message += "#{url}"
 
-      console.log 'message = ' + message
       # Slack に投稿
       if message?
           robot.messageRoom room, message
           res.end "OK"
+          console.log("OK")
       else
           robot.messageRoom room, "Backlog integration error."
           res.end "Error"
+          console.log("Error")
     catch error
       robot.send
       res.end "Error"
+      console.log("Error")
