@@ -12,8 +12,7 @@ Require
 
 HUBOT_HEROKU_KEEPALIVE_URL=http://***.herokuapp.com
 HUBOT_SLACK_TOKEN=xxxxxxx
-
----
+~~~
 
 ### Addons
 
