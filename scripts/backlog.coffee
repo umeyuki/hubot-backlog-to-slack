@@ -40,6 +40,8 @@ module.exports = (robot) ->
       console.log 'message = ' + message
       # Slack に投稿
       if message?
+        console.log "Ohhh"
+        robot.messageRoom room, "I have a secret"
         robot.send {room: "backlog"}, "ハロー"
         # robot.messageRoom room, message
         res.end "OK"
