@@ -20,6 +20,6 @@ heroku config:set BACKLOG_URL=https://your-backlog.backlog.jp --app your_herokua
 
 ~~~ bash
 
-heroku addons:create redistogo:nano
+heroku addons:create redistogo:nano --app you_herokuapp_name
 
 ~~~
